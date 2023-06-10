@@ -17,9 +17,11 @@ import java.util.Date;
 public class DailyTasks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long daily_task_id;
+    private Long dailyTaskId;
 
-    private Long task_id;
+    private Long taskId;
 
-    private Date task_date;
+    private Date taskDate;
+
+    private Long userId;
 }

@@ -13,12 +13,12 @@ import lombok.Data;
 public class Tasks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long task_id;
+    private Long taskId;
 
     @NotBlank
-    private String task_name;
+    private String taskName;
 
-    private String task_description;
+    private String taskDescription;
 
-    private String task_reward;
+    private String taskReward;
 }

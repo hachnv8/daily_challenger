@@ -16,10 +16,12 @@ import java.util.Date;
 public class CompletedTasks {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long completed_id;
+    private long completedId;
 
-    private long task_id;
+    private long taskId;
 
-    private Date completion_date;
+    private Date completionDate;
+
+    private long userId;
 
 }
