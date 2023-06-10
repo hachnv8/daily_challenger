@@ -13,15 +13,15 @@ import java.util.Date;
  */
 @Entity
 @Data
-public class CompletedTasks {
+
+public class DailyTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long completedId;
+    private Long dailyTaskId;
 
-    private long taskId;
+    private Long taskId;
 
-    private Date completionDate;
+    private Date taskDate;
 
-    private long userId;
-
+    private Long userId;
 }
