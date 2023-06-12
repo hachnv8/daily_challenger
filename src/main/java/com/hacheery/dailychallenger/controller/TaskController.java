@@ -1,5 +1,6 @@
 package com.hacheery.dailychallenger.controller;
 
+import com.hacheery.dailychallenger.entity.CompletedTask;
 import com.hacheery.dailychallenger.entity.Task;
 import com.hacheery.dailychallenger.payload.response.ApiResponse;
 import com.hacheery.dailychallenger.service.impl.TaskServiceImpl;
@@ -45,13 +46,14 @@ public class TaskController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{categoryId}")
-    public ResponseEntity<ApiResponse<String>> deleteCategory(@PathVariable Long categoryId) {
-        taskService.deleteTask(categoryId);
-        //logger.info("Xóa thành công category với ID: " + categoryId);
+    @DeleteMapping("/delete/{taskId}")
+    public ResponseEntity<ApiResponse<String>> deleteTask(@PathVariable Long taskId) {
+        taskService.deleteTask(taskId);
         ApiResponse<String> response = new ApiResponse<>();
         response.setSuccess(true);
         response.setMessage("Xóa nhiệm vụ thành công");
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(response);
     }
+
+
 }
