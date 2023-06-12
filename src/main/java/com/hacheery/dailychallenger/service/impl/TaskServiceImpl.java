@@ -21,7 +21,7 @@ public class TaskServiceImpl implements TaskService {
     private final TaskRepository taskRepository;
 
     @Override
-    public Task createTasks(Task task) {
+    public Task createTask(Task task) {
         validateTask(task);
         try {
             return taskRepository.save(task);
@@ -32,7 +32,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     @Transactional
-    public Task updateTasks(Task task, Long taskId) {
+    public Task updateTask(Task task, Long taskId) {
         validateTaskId(taskId);
         validateTask(task);
 
@@ -57,7 +57,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void deleteTasks(Long taskId) {
+    public void deleteTask(Long taskId) {
         validateTaskId(taskId);
 
         try {
@@ -80,7 +80,7 @@ public class TaskServiceImpl implements TaskService {
         if (StringUtils.isBlank(taskName)) {
             throw new IllegalArgumentException("Tên nhiệm vụ không được để trống");
         }
-        if (taskRepository.existByTaskName(taskName)) {
+        if (taskRepository.existsByTaskName(taskName)) {
             throw new IllegalArgumentException("Tên nhiệm vụ đã tồn tại");
         }
     }
