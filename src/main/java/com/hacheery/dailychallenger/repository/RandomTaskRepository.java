@@ -8,5 +8,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface RandomTaskRepository extends JpaRepository<RandomTask, Long> {
 
-
 }

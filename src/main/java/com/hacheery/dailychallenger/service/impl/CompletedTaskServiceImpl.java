@@ -25,7 +25,7 @@ public class CompletedTaskServiceImpl implements CompletedTaskService {
         validateTaskId(taskId);
         CompletedTask task = new CompletedTask();
         task.setTaskId(taskId);
-        task.setUserId(jwtService.getUserName());
+        task.setUserId(jwtService.getUserInformation().getUserId());
         task.setCompleteDate(Instant.now());
         try {
             return completedRepository.save(task);

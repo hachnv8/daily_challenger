@@ -23,7 +23,7 @@ public class Task {
 
     private String taskDescription;
 
-    private String taskReward;
+    private Long taskReward;
 
     private Long categoryId;
 }

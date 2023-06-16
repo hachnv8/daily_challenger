@@ -76,9 +76,8 @@ public class JwtService {
     return Keys.hmacShaKeyFor(keyBytes);
   }
 
-  public Long getUserName() {
+  public User getUserInformation() {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    User user = (User) authentication.getPrincipal();
-    return user.getUserId();
+    return (User) authentication.getPrincipal();
   }
 }

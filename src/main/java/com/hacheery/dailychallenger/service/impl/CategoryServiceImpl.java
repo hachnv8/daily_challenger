@@ -44,7 +44,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         Category existingCategory = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy danh mục với ID: " + categoryId));
-        existingCategory.setName(category.getName());
+        existingCategory.setCategoryName(category.getCategoryName());
 
         try {
             return categoryRepository.save(existingCategory);
@@ -69,7 +69,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private void validateCategory(Category category) {
         Objects.requireNonNull(category, "Thông tin danh mục không được để trống");
-        validateCategoryName(category.getName());
+        validateCategoryName(category.getCategoryName());
     }
 
     private void validateCategoryName(String categoryName) {
@@ -78,7 +78,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (StringUtils.isBlank(categoryName)) {
             throw new IllegalArgumentException("Tên danh mục không được để trống");
         }
-        if (categoryRepository.existsByName(categoryName)) {
+        if (categoryRepository.existsByCategoryName(categoryName)) {
             throw new IllegalArgumentException("Tên danh mục đã tồn tại");
         }
     }

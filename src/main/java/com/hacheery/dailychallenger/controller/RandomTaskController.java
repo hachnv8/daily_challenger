@@ -4,6 +4,7 @@ import com.hacheery.dailychallenger.entity.RandomTask;
 import com.hacheery.dailychallenger.payload.response.ApiResponse;
 import com.hacheery.dailychallenger.service.impl.RandomTaskServiceImpl;
 import com.hacheery.dailychallenger.util.DateUtils;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/random")
+@SecurityRequirement(name = "bearerAuth")
 public class RandomTaskController {
     private final RandomTaskServiceImpl randomTaskService;
 
@@ -29,7 +31,7 @@ public class RandomTaskController {
         response.setSuccess(true);
 
         response.setMessage("Tạo thành công danh mục nhiệm vụ cho ngày: " + DateUtils.getDateYYYYMMDD(LocalDate.now()));
-        response.setData(randomTaskService.createRandomList());
+        response.setData(randomTaskService.createRandomTasks(5));
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }

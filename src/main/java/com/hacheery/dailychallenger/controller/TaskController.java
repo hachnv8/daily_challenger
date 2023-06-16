@@ -1,6 +1,5 @@
 package com.hacheery.dailychallenger.controller;
 
-import com.hacheery.dailychallenger.entity.CompletedTask;
 import com.hacheery.dailychallenger.entity.Task;
 import com.hacheery.dailychallenger.payload.response.ApiResponse;
 import com.hacheery.dailychallenger.service.impl.TaskServiceImpl;

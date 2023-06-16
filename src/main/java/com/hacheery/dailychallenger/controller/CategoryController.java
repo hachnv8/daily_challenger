@@ -3,6 +3,7 @@ package com.hacheery.dailychallenger.controller;
 import com.hacheery.dailychallenger.entity.Category;
 import com.hacheery.dailychallenger.payload.response.ApiResponse;
 import com.hacheery.dailychallenger.service.impl.CategoryServiceImpl;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("category")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class CategoryController {
     private final CategoryServiceImpl categoryService;
     private static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
@@ -31,7 +33,7 @@ public class CategoryController {
         ApiResponse<Category> response = new ApiResponse<>();
         Category savedCategory = categoryService.createCategory(category);
         // Log the successful creation
-        logger.info("Tạo thành công category với ID: " + savedCategory.getId());
+        logger.info("Tạo thành công category với ID: " + savedCategory.getCategoryId());
         response.setSuccess(true);
         response.setMessage("Tạo category thành công!");
         response.setData(savedCategory);
