@@ -1,11 +1,14 @@
 package com.hacheery.dailychallenger.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by HachNV on 10/06/2023
@@ -21,7 +24,11 @@ public class DailyTask {
 
     private Long taskId;
 
-    private Date taskDate;
+    private LocalDate taskDate;
 
     private Long userId;
+
+    private LocalDate completedDate;
+
+    private boolean isCompleted;
 }

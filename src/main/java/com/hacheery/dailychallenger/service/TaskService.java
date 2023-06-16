@@ -1,7 +1,6 @@
 package com.hacheery.dailychallenger.service;
 
 
-import com.hacheery.dailychallenger.entity.CompletedTask;
 import com.hacheery.dailychallenger.entity.Task;
 
 /**
